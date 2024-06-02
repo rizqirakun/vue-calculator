@@ -4,6 +4,6 @@ import Calculator from "./components/Calculator.vue";
 
 <template>
   <section id="app">
-    <Calculator msg="Vite + Vue" />
+    <Calculator />
   </section>
 </template>
