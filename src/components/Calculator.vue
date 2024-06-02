@@ -1,10 +1,4 @@
-<script setup lang="ts">
-import { ref } from "vue";
-
-defineProps<{ msg: string }>();
-
-const count = ref(0);
-</script>
+<script setup lang="ts"></script>
 
 <template>
   <div className="calculator">
@@ -211,7 +205,7 @@ export default {
       if (this.currentValue === "0") return;
       this.currentValue = (parseFloat(this.currentValue) / 100).toString();
     },
-    setOperator(symbol) {
+    setOperator(symbol: string) {
       if (!this.displayOperator && symbol !== "=") {
         this.displayOperator = symbol;
         this.previousValue = this.currentValue;
@@ -238,7 +232,9 @@ export default {
           value *= current;
           break;
         case "/":
-          value /= current.toFixed(Math.min(this.currentValue.length, 8));
+          value /= parseFloat(
+            current.toFixed(Math.min(this.currentValue.length, 8))
+          );
           break;
         default:
           break;
